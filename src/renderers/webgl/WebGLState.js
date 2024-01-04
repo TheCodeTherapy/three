@@ -556,7 +556,16 @@ function WebGLState( gl, extensions, capabilities ) {
 
 		if ( currentProgram !== program ) {
 
-			gl.useProgram( program );
+			try {
+
+				gl.useProgram( program );
+
+			} catch ( e ) {
+
+				// no-op
+
+			}
+
 
 			currentProgram = program;
 

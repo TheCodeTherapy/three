@@ -23204,7 +23204,16 @@ console.warn( 'Scripts "build/three.js" and "build/three.min.js" are deprecated 
 
 			if ( currentProgram !== program ) {
 
-				gl.useProgram( program );
+				try {
+
+					gl.useProgram( program );
+
+				} catch ( e ) {
+
+					// no-op
+
+				}
+
 
 				currentProgram = program;
 
